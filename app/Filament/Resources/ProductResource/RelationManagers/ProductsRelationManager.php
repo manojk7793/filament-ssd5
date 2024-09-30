@@ -22,6 +22,9 @@ class ProductsRelationManager extends RelationManager
         return $form
             ->schema([
                 FileUpload::make('image_path')
+                    ->columnSpanFull()
+                    ->acceptedFileTypes(['image/jpg', 'image/jpeg', 'image/png'])
+                    ->maxSize(5120)
             ]);
     }
 
