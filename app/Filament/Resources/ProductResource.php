@@ -44,6 +44,9 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')->sortable()->searchable(),
+                TextColumn::make('description')->sortable()->searchable(),
+                BooleanColumn::make('status')->sortable(),
+                TextColumn::make('created_at')->date()->sortable(),
             ])
             ->filters([])
             ->actions([
@@ -56,7 +59,7 @@ class ProductResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\ProductsRelationManager::class,
         ];
     }
 
